@@ -1,0 +1,100 @@
+package io.shubham0204.smollmandroid.data.models
+
+data class QwenModelInfo(
+    val id: String,
+    val displayName: String,
+    val size: String,
+    val sizeBytes: Long,
+    val quantization: String,
+    val downloadUrl: String,
+    val fileName: String,
+    val description: String,
+    val requirements: String,
+    val recommendedFor: String
+)
+
+object QwenModelCatalog {
+    
+    val models = listOf(
+        QwenModelInfo(
+            id = "qwen2.5-coder-0.5b-q4",
+            displayName = "Qwen 2.5 Coder 0.5B (Q4)",
+            size = "~350 MB",
+            sizeBytes = 350L * 1024 * 1024,
+            quantization = "Q4_K_M",
+            downloadUrl = "https://huggingface.co/Qwen/Qwen2.5-Coder-0.5B-Instruct-GGUF/resolve/main/qwen2.5-coder-0.5b-instruct-q4_k_m.gguf",
+            fileName = "qwen2.5-coder-0.5b-q4.gguf",
+            description = "Lightweight and fast. Best for older devices.",
+            requirements = "RAM: 1GB+ | Storage: 400MB",
+            recommendedFor = "Budget phones, quick responses"
+        ),
+        QwenModelInfo(
+            id = "qwen2.5-coder-0.5b-q5",
+            displayName = "Qwen 2.5 Coder 0.5B (Q5)",
+            size = "~400 MB",
+            sizeBytes = 400L * 1024 * 1024,
+            quantization = "Q5_K_M",
+            downloadUrl = "https://huggingface.co/Qwen/Qwen2.5-Coder-0.5B-Instruct-GGUF/resolve/main/qwen2.5-coder-0.5b-instruct-q5_k_m.gguf",
+            fileName = "qwen2.5-coder-0.5b-q5.gguf",
+            description = "Better quality than Q4. Balanced performance.",
+            requirements = "RAM: 1.5GB+ | Storage: 450MB",
+            recommendedFor = "Mid-range phones, good quality"
+        ),
+        QwenModelInfo(
+            id = "qwen2.5-coder-0.5b-f16",
+            displayName = "Qwen 2.5 Coder 0.5B (F16)",
+            size = "~1 GB",
+            sizeBytes = 1024L * 1024 * 1024,
+            quantization = "F16",
+            downloadUrl = "https://huggingface.co/Qwen/Qwen2.5-Coder-0.5B-Instruct-GGUF/resolve/main/qwen2.5-coder-0.5b-instruct-f16.gguf",
+            fileName = "qwen2.5-coder-0.5b-f16.gguf",
+            description = "Best quality for 0.5B model. Higher precision.",
+            requirements = "RAM: 2GB+ | Storage: 1.1GB",
+            recommendedFor = "Modern phones, maximum quality"
+        ),
+        QwenModelInfo(
+            id = "qwen2.5-coder-1.5b-q4",
+            displayName = "Qwen 2.5 Coder 1.5B (Q4)",
+            size = "~900 MB",
+            sizeBytes = 900L * 1024 * 1024,
+            quantization = "Q4_K_M",
+            downloadUrl = "https://huggingface.co/Qwen/Qwen2.5-Coder-1.5B-Instruct-GGUF/resolve/main/qwen2.5-coder-1.5b-instruct-q4_k_m.gguf",
+            fileName = "qwen2.5-coder-1.5b-q4.gguf",
+            description = "More capable. Better code understanding.",
+            requirements = "RAM: 2GB+ | Storage: 1GB",
+            recommendedFor = "Good phones, complex coding tasks"
+        ),
+        QwenModelInfo(
+            id = "qwen2.5-coder-1.5b-q5",
+            displayName = "Qwen 2.5 Coder 1.5B (Q5)",
+            size = "~1.1 GB",
+            sizeBytes = 1100L * 1024 * 1024,
+            quantization = "Q5_K_M",
+            downloadUrl = "https://huggingface.co/Qwen/Qwen2.5-Coder-1.5B-Instruct-GGUF/resolve/main/qwen2.5-coder-1.5b-instruct-q5_k_m.gguf",
+            fileName = "qwen2.5-coder-1.5b-q5.gguf",
+            description = "Excellent quality. Recommended for most users.",
+            requirements = "RAM: 3GB+ | Storage: 1.2GB",
+            recommendedFor = "Flagship phones, professional coding"
+        ),
+        QwenModelInfo(
+            id = "qwen2.5-coder-1.5b-f16",
+            displayName = "Qwen 2.5 Coder 1.5B (F16)",
+            size = "~3 GB",
+            sizeBytes = 3L * 1024 * 1024 * 1024,
+            quantization = "F16",
+            downloadUrl = "https://huggingface.co/Qwen/Qwen2.5-Coder-1.5B-Instruct-GGUF/resolve/main/qwen2.5-coder-1.5b-instruct-f16.gguf",
+            fileName = "qwen2.5-coder-1.5b-f16.gguf",
+            description = "Highest quality. Needs powerful device.",
+            requirements = "RAM: 4GB+ | Storage: 3.2GB",
+            recommendedFor = "High-end phones only, best results"
+        )
+    )
+    
+    fun getModelById(id: String): QwenModelInfo? {
+        return models.find { it.id == id }
+    }
+    
+    fun getRecommendedModel(): QwenModelInfo {
+        return models[4]
+    }
+}

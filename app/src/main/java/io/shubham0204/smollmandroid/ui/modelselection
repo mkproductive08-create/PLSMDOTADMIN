@@ -1,1 +1,3 @@
+package io.shubham0204.smollmandroid.ui.modelselection
 
+class ModelSelectionActivity

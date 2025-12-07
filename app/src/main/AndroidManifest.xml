@@ -43,12 +43,14 @@
         <activity android:name=".ui.screens.model_download.DownloadModelActivity"/>
 
         <activity android:name=".ui.screens.manage_tasks.ManageTasksActivity"/>
-                <activity android:name="io.shubham0204.smollmandroid.ui.ModelSelectionActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+                <activity
+    android:name="io.shubham0204.smollmandroid.ui.ModelSelectionActivity"
+    android:exported="true">
+    <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+        <category android:name="android.intent.category.LAUNCHER" />
+    </intent-filter>
+</activity>
     </application>
 
 </manifest>

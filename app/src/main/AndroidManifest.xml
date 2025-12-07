@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:name=".SmolChatApplication"
@@ -17,19 +17,22 @@
         android:localeConfig="@xml/locales_config"
         tools:targetApi="31">
 
+        <!-- Single launcher activity -->
         <activity
             android:name=".MainActivity"
             android:exported="true"
             android:theme="@style/Theme.SmolLMAndroid">
-           
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
+        <!-- Share-to-chat entry point -->
         <activity
             android:label="💬 LLM"
             android:name=".ui.screens.chat.ChatActivity"
             android:exported="true">
-            <!-- This intent-filter is used to receive text from other apps-->
-            <!-- The received text is then sent to a new chat-->
             <intent-filter>
                 <action android:name="android.intent.action.SEND" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -37,17 +40,14 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".ui.screens.model_download.DownloadModelActivity"/>
+        <!-- Other internal screens -->
+        <activity android:name=".ui.screens.model_download.DownloadModelActivity" />
+        <activity android:name=".ui.screens.manage_tasks.ManageTasksActivity" />
 
-        <activity android:name=".ui.screens.manage_tasks.ManageTasksActivity"/>
-                <activity
-    android:name="io.shubham0204.smollmandroid.ui.ModelSelectionActivity"
-    android:exported="true">
-    <intent-filter>
-        <action android:name="android.intent.action.MAIN" />
-        <category android:name="android.intent.category.LAUNCHER" />
-    </intent-filter>
-</activity>
+        <!-- Model selection screen (opened from inside the app) -->
+        <activity
+            android:name="io.shubham0204.smollmandroid.ui.ModelSelectionActivity"
+            android:exported="false" />
     </application>
 
 </manifest>
